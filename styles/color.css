@@ -1,0 +1,13 @@
+@import url(./variables.css);
+
+/*-------------------------
+colors
+---------------------------*/
+
+.primary{
+    color: var(--color-primary-50);
+}
+
+.primary-hover:hover{
+    color: var(--color-primary-80);
+}
