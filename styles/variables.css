@@ -1,4 +1,19 @@
 :root {
+    /* layout variable */
+    /* container left right padding */
+    --container-padding-right : 20px;
+    --container-padding-left : 20px;
+
+    /* container width */
+    --main-container-width:100%;
+    --container-sm-width: 540px; /*576px breakpoint*/
+    --container-md-width: 720px; /*768px breakpoint*/
+    --container-lg-width: 960px; /*992px breakpoint*/
+    --container-xl-width: 1140px; /*1200px breakpoint*/
+    --container-xxl-width: 1320px; /*1400px breakpoint*/
+
+
+    
     --color-primary-100:#001417;
     --color-primary-90:#003c44;
     --color-primary-80:#006472;
@@ -10,4 +25,8 @@
     --color-primary-20:#80e3f2;
     --color-primary-10:#b3eef7;
     --color-primary-0:#e6f9fc;
+
+
+
+
 }

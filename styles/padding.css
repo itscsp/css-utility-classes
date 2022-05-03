@@ -1,0 +1,5 @@
+
+.container-x-padding {
+    padding-right: var(--container-padding-right);
+    padding-left: var(--container-padding-left);
+}
