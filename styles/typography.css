@@ -1,3 +1,66 @@
+/*-------------------------
+
+Font Size
+
+--------------------------*/
+
+address,
+article,
+aside,
+blockquote,
+body,
+caption,
+center,
+col,
+colgroup,
+dd,
+dir,
+div,
+dl,
+dt,
+fieldset,
+figcaption,
+figure,
+footer,
+form,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+header,
+hgroup,
+hr,
+html,
+legend,
+li,
+listing,
+main,
+marquee,
+menu,
+nav,
+noframes,
+ol,
+p,
+plaintext,
+pre,
+section,
+summary,
+table,
+tbody,
+td,
+tfoot,
+th,
+thead,
+tr,
+ul,
+xmp {
+    font-size: var(--base-font-size);
+    font-weight: var(--base-font-weight);
+    display: var(--base-font-display);
+    margin: var(--base-font-margin);
+}
 
 
 /*-------------------------
@@ -7,14 +70,15 @@ Text Alignments
 --------------------------*/
 
 
-.text-center{
+.text-center {
     text-align: center;
 }
 
-.text-left{
+.text-left {
     text-align: left;
 }
 
-.text-right{
+.text-right {
     text-align: right;
 }
+

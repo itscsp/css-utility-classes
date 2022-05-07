@@ -1,0 +1,1405 @@
+/*
+2	 * The default style sheet used to render HTML.
+3	 *
+4	 * Copyright (C) 2000 Lars Knoll (knoll@kde.org)
+5	 * Copyright (C) 2003-2011, 2014 Apple Inc. All rights reserved.
+6	 *
+7	 * This library is free software; you can redistribute it and/or
+8	 * modify it under the terms of the GNU Library General Public
+9	 * License as published by the Free Software Foundation; either
+10	 * version 2 of the License, or (at your option) any later version.
+11	 *
+12	 * This library is distributed in the hope that it will be useful,
+13	 * but WITHOUT ANY WARRANTY; without even the implied warranty of
+14	 * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+15	 * Library General Public License for more details.
+16	 *
+17	 * You should have received a copy of the GNU Library General Public License
+18	 * along with this library; see the file COPYING.LIB.  If not, write to
+19	 * the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
+20	 * Boston, MA 02110-1301, USA.
+21	 *
+22	 */
+23	
+24	@namespace "http://www.w3.org/1999/xhtml";
+25	
+26	html {
+27	    display: block;
+28	#if defined(HAVE_OS_DARK_MODE_SUPPORT) && HAVE_OS_DARK_MODE_SUPPORT
+29	    color: text;
+30	#endif
+31	}
+32	
+33	/* children of the <head> element all have display:none */
+34	head, link, meta, script, style, title {
+35	    display: none;
+36	}
+37	
+38	/* generic block-level elements */
+39	
+40	body {
+41	    display: block;
+42	    margin: 8px;
+43	}
+44	
+45	p {
+46	    display: block;
+47	    margin-block-start: 1__qem;
+48	    margin-block-end: 1__qem;
+49	    margin-inline-start: 0;
+50	    margin-inline-end: 0;
+51	}
+52	
+53	address, article, aside, div, footer, header, hgroup, main, nav, section {
+54	    display: block;
+55	}
+56	
+57	marquee {
+58	    display: inline-block;
+59	}
+60	
+61	blockquote {
+62	    display: block;
+63	    margin-block-start: 1__qem;
+64	    margin-block-end: 1em;
+65	    margin-inline-start: 40px;
+66	    margin-inline-end: 40px;
+67	}
+68	
+69	figcaption {
+70	    display: block;
+71	}
+72	
+73	figure {
+74	    display: block;
+75	    margin-block-start: 1em;
+76	    margin-block-end: 1em;
+77	    margin-inline-start: 40px;
+78	    margin-inline-end: 40px;
+79	}
+80	
+81	q {
+82	    display: inline;
+83	}
+84	
+85	q::before {
+86	    content: open-quote;
+87	}
+88	
+89	q::after {
+90	    content: close-quote;
+91	}
+92	
+93	center {
+94	    display: block;
+95	    /* special centering to be able to emulate the html4/netscape behaviour */
+96	    text-align: -webkit-center;
+97	}
+98	
+99	hr {
+100	    display: block;
+101	    margin-block-start: 0.5em;
+102	    margin-block-end: 0.5em;
+103	    margin-inline-start: auto;
+104	    margin-inline-end: auto;
+105	    border-style: inset;
+106	    border-width: 1px;
+107	}
+108	
+109	/* media elements */
+110	
+111	body:-webkit-full-page-media {
+112	    background-color: rgb(38, 38, 38);
+113	}
+114	
+115	video {
+116	    object-fit: contain;
+117	#if defined(WTF_PLATFORM_IOS_FAMILY) && WTF_PLATFORM_IOS_FAMILY
+118	    -webkit-tap-highlight-color: transparent;
+119	#endif
+120	}
+121	
+122	audio {
+123	    width: 200px;
+124	    height: 25px;
+125	}
+126	
+127	/* heading elements */
+128	
+129	h1 {
+130	    display: block;
+131	    font-size: 2em;
+132	    margin-block-start: 0.67__qem;
+133	    margin-block-end: 0.67em;
+134	    margin-inline-start: 0;
+135	    margin-inline-end: 0;
+136	    font-weight: bold;
+137	}
+138	
+139	:is(article, aside, nav, section) h1 {
+140	    font-size: 1.5em;
+141	    margin-block-start: 0.83__qem;
+142	    margin-block-end: 0.83em;
+143	}
+144	
+145	:is(article, aside, nav, section) :is(article, aside, nav, section) h1 {
+146	    font-size: 1.17em;
+147	    margin-block-start: 1__qem;
+148	    margin-block-end: 1em;
+149	}
+150	
+151	:is(article, aside, nav, section) :is(article, aside, nav, section) :is(article, aside, nav, section) h1 {
+152	    font-size: 1.00em;
+153	    margin-block-start: 1.33__qem;
+154	    margin-block-end: 1.33em;
+155	}
+156	
+157	:is(article, aside, nav, section) :is(article, aside, nav, section) :is(article, aside, nav, section) :is(article, aside, nav, section) h1 {
+158	    font-size: .83em;
+159	    margin-block-start: 1.67__qem;
+160	    margin-block-end: 1.67em;
+161	}
+162	
+163	:is(article, aside, nav, section) :is(article, aside, nav, section) :is(article, aside, nav, section) :is(article, aside, nav, section) :is(article, aside, nav, section) h1 {
+164	    font-size: .67em;
+165	    margin-block-start: 2.33__qem;
+166	    margin-block-end: 2.33em;
+167	}
+168	
+169	h2 {
+170	    display: block;
+171	    font-size: 1.5em;
+172	    margin-block-start: 0.83__qem;
+173	    margin-block-end: 0.83em;
+174	    margin-inline-start: 0;
+175	    margin-inline-end: 0;
+176	    font-weight: bold;
+177	}
+178	
+179	h3 {
+180	    display: block;
+181	    font-size: 1.17em;
+182	    margin-block-start: 1__qem;
+183	    margin-block-end: 1em;
+184	    margin-inline-start: 0;
+185	    margin-inline-end: 0;
+186	    font-weight: bold;
+187	}
+188	
+189	h4 {
+190	    display: block;
+191	    margin-block-start: 1.33__qem;
+192	    margin-block-end: 1.33em;
+193	    margin-inline-start: 0;
+194	    margin-inline-end: 0;
+195	    font-weight: bold;
+196	}
+197	
+198	h5 {
+199	    display: block;
+200	    font-size: .83em;
+201	    margin-block-start: 1.67__qem;
+202	    margin-block-end: 1.67em;
+203	    margin-inline-start: 0;
+204	    margin-inline-end: 0;
+205	    font-weight: bold;
+206	}
+207	
+208	h6 {
+209	    display: block;
+210	    font-size: .67em;
+211	    margin-block-start: 2.33__qem;
+212	    margin-block-end: 2.33em;
+213	    margin-inline-start: 0;
+214	    margin-inline-end: 0;
+215	    font-weight: bold;
+216	}
+217	
+218	/* tables */
+219	
+220	table {
+221	    display: table;
+222	    border-collapse: separate;
+223	    border-spacing: 2px;
+224	    border-color: gray;
+225	    text-indent: initial;
+226	}
+227	
+228	thead {
+229	    display: table-header-group;
+230	    vertical-align: middle;
+231	    border-color: inherit;
+232	}
+233	
+234	tbody {
+235	    display: table-row-group;
+236	    vertical-align: middle;
+237	    border-color: inherit;
+238	}
+239	
+240	tfoot {
+241	    display: table-footer-group;
+242	    vertical-align: middle;
+243	    border-color: inherit;
+244	}
+245	
+246	/* for tables without table section elements (can happen with XHTML or dynamically created tables) */
+247	table > tr {
+248	    vertical-align: middle;
+249	}
+250	
+251	col {
+252	    display: table-column;
+253	}
+254	
+255	colgroup {
+256	    display: table-column-group;
+257	}
+258	
+259	tr {
+260	    display: table-row;
+261	    vertical-align: inherit;
+262	    border-color: inherit;
+263	}
+264	
+265	td, th {
+266	    display: table-cell;
+267	    vertical-align: inherit;
+268	}
+269	
+270	th {
+271	    font-weight: bold;
+272	}
+273	
+274	caption {
+275	    display: table-caption;
+276	    text-align: -webkit-center;
+277	}
+278	
+279	/* lists */
+280	
+281	ul, menu, dir {
+282	    display: block;
+283	    list-style-type: disc;
+284	    margin-block-start: 1__qem;
+285	    margin-block-end: 1em;
+286	    margin-inline-start: 0;
+287	    margin-inline-end: 0;
+288	    padding-inline-start: 40px;
+289	}
+290	
+291	ol {
+292	    display: block;
+293	    list-style-type: decimal;
+294	    margin-block-start: 1__qem;
+295	    margin-block-end: 1em;
+296	    margin-inline-start: 0;
+297	    margin-inline-end: 0;
+298	    padding-inline-start: 40px;
+299	}
+300	
+301	li {
+302	    display: list-item;
+303	    text-align: match-parent;
+304	}
+305	
+306	/* FIXME: this should also match ::before::marker and ::after::marker but we don't support
+307	   this yet. When we do, we can remove the code specific to ::before and ::after in
+308	   RenderListItem::computeMarkerStyle(), see bugs.webkit.org/b/218897. */
+309	::marker {
+310	    unicode-bidi: isolate;
+311	    font-variant-numeric: tabular-nums;
+312	    white-space: pre;
+313	    text-transform: none;
+314	}
+315	
+316	ul ul, ol ul {
+317	    list-style-type: circle;
+318	}
+319	
+320	ol ol ul, ol ul ul, ul ol ul, ul ul ul {
+321	    list-style-type: square;
+322	}
+323	
+324	dd {
+325	    display: block;
+326	    margin-inline-start: 40px;
+327	}
+328	
+329	dl {
+330	    display: block;
+331	    margin-block-start: 1__qem;
+332	    margin-block-end: 1em;
+333	    margin-inline-start: 0;
+334	    margin-inline-end: 0;
+335	}
+336	
+337	dt {
+338	    display: block;
+339	}
+340	
+341	ol ul, ul ol, ul ul, ol ol {
+342	    margin-block-start: 0;
+343	    margin-block-end: 0;
+344	}
+345	
+346	/* form elements */
+347	
+348	form {
+349	    display: block;
+350	    margin-top: 0__qem;
+351	}
+352	
+353	label {
+354	    cursor: default;
+355	}
+356	
+357	legend {
+358	    display: block;
+359	    padding-inline-start: 2px;
+360	    padding-inline-end: 2px;
+361	    border: none;
+362	}
+363	
+364	fieldset {
+365	    display: block;
+366	    margin-inline-start: 2px;
+367	    margin-inline-end: 2px;
+368	    padding-block-start: 0.35em;
+369	    padding-inline-start: 0.75em;
+370	    padding-inline-end: 0.75em;
+371	    padding-block-end: 0.625em;
+372	    border: 2px groove ThreeDFace;
+373	    min-width: min-content;
+374	}
+375	
+376	button {
+377	    appearance: auto;
+378	}
+379	
+380	/* Form controls don't go vertical. */
+381	input, textarea, select, button, meter, progress {
+382	    writing-mode: horizontal-tb !important;
+383	}
+384	
+385	input, textarea, select, button {
+386	    margin: 0__qem;
+387	#if !(defined(WTF_PLATFORM_IOS_FAMILY) && WTF_PLATFORM_IOS_FAMILY)
+388	    font: -webkit-small-control;
+389	#endif
+390	    color: initial;
+391	    letter-spacing: normal;
+392	    word-spacing: normal;
+393	    line-height: normal;
+394	    text-transform: none;
+395	    text-indent: 0;
+396	    text-shadow: none;
+397	    display: inline-block;
+398	    text-align: start;
+399	}
+400	
+401	input[type="hidden"] {
+402	    display: none;
+403	}
+404	
+405	#if defined(WTF_PLATFORM_IOS_FAMILY) && WTF_PLATFORM_IOS_FAMILY
+406	textarea,
+407	#endif
+408	input {
+409	    appearance: auto;
+410	#if defined(HAVE_OS_DARK_MODE_SUPPORT) && HAVE_OS_DARK_MODE_SUPPORT
+411	    color: text;
+412	    background-color: -webkit-control-background;
+413	#else
+414	    background-color: white;
+415	#endif
+416	#if defined(WTF_PLATFORM_IOS_FAMILY) && WTF_PLATFORM_IOS_FAMILY
+417	    border-radius: 5px;
+418	    border: 1px solid -apple-system-secondary-label;
+419	    font: 11px system-ui;
+420	    padding: 0.2em 0.5em 0.3em 0.5em;
+421	#else
+422	    border: 2px inset;
+423	    padding: 1px;
+424	#endif
+425	    -webkit-rtl-ordering: logical;
+426	    user-select: text;
+427	    cursor: auto;
+428	}
+429	
+430	#if defined(HAVE_OS_DARK_MODE_SUPPORT) && HAVE_OS_DARK_MODE_SUPPORT
+431	@media (prefers-dark-interface) {
+432	    input {
+433	        background-color: transparent;
+434	    }
+435	}
+436	#endif
+437	
+438	input[type="search"] {
+439	    appearance: auto;
+440	    box-sizing: border-box;
+441	#if defined(WTF_PLATFORM_IOS_FAMILY) && WTF_PLATFORM_IOS_FAMILY
+442	    border: 1px solid -webkit-control-background;
+443	    background-color: -apple-system-opaque-tertiary-fill;
+444	#endif
+445	}
+446	
+447	input::-webkit-textfield-decoration-container {
+448	    display: flex;
+449	    align-items: center;
+450	    content: none !important;
+451	}
+452	
+453	input[type="search"]::-webkit-search-cancel-button {
+454	    appearance: auto;
+455	    display: block;
+456	    flex: none;
+457	    align-self: flex-start;
+458	    margin: auto 0;
+459	}
+460	
+461	input[type="search"]::-webkit-search-decoration {
+462	    appearance: auto;
+463	    display: block;
+464	    flex: none;
+465	    align-self: flex-start;
+466	    margin: auto 0;
+467	}
+468	
+469	input[type="search"]::-webkit-search-results-decoration {
+470	    appearance: auto;
+471	    display: block;
+472	    flex: none;
+473	    align-self: flex-start;
+474	    margin: auto 0;
+475	}
+476	
+477	input[type="search"]::-webkit-search-results-button {
+478	    appearance: auto;
+479	    display: block;
+480	    flex: none;
+481	#if defined(WTF_PLATFORM_IOS_FAMILY) && WTF_PLATFORM_IOS_FAMILY
+482	    align-self: flex-start;
+483	    margin: auto 0;
+484	#endif
+485	}
+486	
+487	#if defined(ENABLE_DATE_AND_TIME_INPUT_TYPES) && ENABLE_DATE_AND_TIME_INPUT_TYPES
+488	input:is([type="date"], [type="time"], [type="datetime-local"], [type="month"], [type="week"]) {
+489	    appearance: auto;
+490	    align-items: center;
+491	    display: inline-flex;
+492	    overflow: hidden;
+493	#if defined(WTF_PLATFORM_IOS_FAMILY) && WTF_PLATFORM_IOS_FAMILY
+494	    border: 1px solid -webkit-control-background;
+495	    background-color: -apple-system-opaque-secondary-fill;
+496	    font-family: system-ui;
+497	    color: -apple-system-blue;
+498	    padding: 0.2em 0.5em;
+499	#else
+500	    outline: none;
+501	    font-variant-numeric: tabular-nums;
+502	    /* FIXME: Font features should be defined in a @font-feature-values rule, so that the feature setting is only applied to the system font. */
+503	    /* "ss03" enables the raised colon separator on the system font. */
+504	    font-feature-settings: "ss03";
+505	#endif
+506	}
+507	
+508	#if defined(WTF_PLATFORM_IOS_FAMILY) && WTF_PLATFORM_IOS_FAMILY
+509	input:is([type="date"], [type="time"], [type="datetime-local"], [type="month"], [type="week"]):disabled {
+510	    background-color: -apple-system-opaque-secondary-fill-disabled;
+511	    color: -apple-system-tertiary-label;
+512	    opacity: initial;
+513	}
+514	#endif
+515	
+516	#endif
+517	
+518	input::-webkit-date-and-time-value {
+519	#if defined(WTF_PLATFORM_IOS_FAMILY) && WTF_PLATFORM_IOS_FAMILY
+520	    margin: 0px;
+521	    text-align: center;
+522	    width: 100%;
+523	#else
+524	    margin: 1px 24px 1px 4px;
+525	    white-space: pre;
+526	#endif
+527	}
+528	
+529	/* FIXME: Styling inner elements of the date control should be specific to input[type="date"]. */
+530	
+531	input::-webkit-datetime-edit {
+532	    display: inline-block;
+533	    overflow: hidden;
+534	    padding: 1px;
+535	}
+536	
+537	input::-webkit-datetime-edit-fields-wrapper {
+538	    display: inline-block;
+539	    white-space: pre;
+540	}
+541	
+542	input::-webkit-datetime-edit-year-field,
+543	input::-webkit-datetime-edit-month-field,
+544	input::-webkit-datetime-edit-day-field,
+545	input::-webkit-datetime-edit-hour-field,
+546	input::-webkit-datetime-edit-minute-field,
+547	input::-webkit-datetime-edit-second-field,
+548	input::-webkit-datetime-edit-millisecond-field,
+549	input::-webkit-datetime-edit-meridiem-field {
+550	    display: inline-block;
+551	    font: inherit !important;
+552	    padding: 1px;
+553	    text-align: center;
+554	}
+555	
+556	input::-webkit-datetime-edit-year-field:focus,
+557	input::-webkit-datetime-edit-month-field:focus,
+558	input::-webkit-datetime-edit-day-field:focus,
+559	input::-webkit-datetime-edit-hour-field:focus,
+560	input::-webkit-datetime-edit-minute-field:focus,
+561	input::-webkit-datetime-edit-second-field:focus,
+562	input::-webkit-datetime-edit-millisecond-field:focus,
+563	input::-webkit-datetime-edit-meridiem-field:focus {
+564	#if defined(WTF_PLATFORM_COCOA) && WTF_PLATFORM_COCOA
+565	    background-color: -apple-system-control-accent;
+566	    border-radius: 3px;
+567	    color: white;
+568	#else
+569	    background-color: highlight;
+570	    color: highlighttext;
+571	#endif
+572	    outline: none;
+573	}
+574	
+575	input[disabled]::-webkit-datetime-edit-year-field,
+576	input[disabled]::-webkit-datetime-edit-month-field,
+577	input[disabled]::-webkit-datetime-edit-day-field,
+578	input[disabled]::-webkit-datetime-edit-hour-field,
+579	input[disabled]::-webkit-datetime-edit-minute-field,
+580	input[disabled]::-webkit-datetime-edit-second-field,
+581	input[disabled]::-webkit-datetime-edit-millisecond-field,
+582	input[disabled]::-webkit-datetime-edit-meridiem-field,
+583	input[disabled]::-webkit-datetime-edit-text {
+584	    color: GrayText;
+585	}
+586	
+587	input::-webkit-datetime-edit-text {
+588	    display: inline;
+589	}
+590	
+591	input::-webkit-inner-spin-button {
+592	    appearance: auto;
+593	    display: block;
+594	    position: relative;
+595	    cursor: default;
+596	    /* This height property is ignored for input type "number" and others which
+597	     * use RenderTextControlSingleLine as renderer which sets height of spin
+598	     * button in layout(). */
+599	    height: 1.5em;
+600	    flex: none;
+601	    user-select: none;
+602	}
+603	
+604	input::-webkit-strong-password-auto-fill-button {
+605	    flex-shrink: 1 !important;
+606	    font-family: -apple-system !important;
+607	    -webkit-text-security: none !important;
+608	    user-select: none !important;
+609	    pointer-events: none !important;
+610	    text-align: right !important;
+611	    color: rgba(0, 0, 0, 0.8) !important;
+612	    padding-left: 6px !important;
+613	    white-space: nowrap !important;
+614	}
+615	
+616	input::-webkit-credentials-auto-fill-button {
+617	#if defined(WTF_PLATFORM_COCOA) && WTF_PLATFORM_COCOA
+618	    background-image: url('data:image/svg+xml,%3Csvg xmlns%3D"http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg" viewBox%3D"0 0 26 26"%3E%3Cpath d%3D"m8.692 1h8.617c2.675 0 3.644.278 4.622.801s1.745 1.29 2.268 2.268.801 1.948.801 4.622v8.617c0 2.675-.278 3.644-.801 4.622s-1.29 1.745-2.268 2.268-1.948.801-4.622.801h-8.617c-2.675 0-3.644-.278-4.622-.801s-1.745-1.29-2.268-2.268-.801-1.948-.801-4.622v-8.616c0-2.675.278-3.644.801-4.622s1.29-1.745 2.268-2.268 1.948-.801 4.622-.801z" fill%3D"%23e5e5e5" opacity%3D".64"%2F%3E%3Cpath d%3D"m9.838 8.318c-.308 0-.57-.108-.787-.325s-.325-.478-.325-.785.108-.57.323-.787.478-.325.789-.325c.303 0 .564.109.782.327s.327.48.327.785c0 .306-.109.568-.327.785s-.479.325-.782.325zm0-3.84c-.59 0-1.139.108-1.648.324s-.956.517-1.341.903-.686.833-.904 1.341-.326 1.055-.326 1.641c0 .571.106 1.112.317 1.622s.51.961.896 1.352.841.698 1.366.918v6.082c0 .101.018.196.054.287s.092.173.167.247l1.122 1.077c.083.078.19.12.32.126s.244-.039.343-.136l1.998-1.998c.104-.105.155-.227.153-.365s-.054-.26-.157-.365l-1.094-1.083 1.555-1.553c.101-.102.151-.223.149-.361-.001-.138-.054-.26-.158-.365l-1.488-1.496c.929-.411 1.644-.964 2.142-1.66.499-.696.748-1.472.748-2.329 0-.581-.109-1.126-.327-1.635s-.52-.956-.905-1.341-.833-.687-1.343-.905-1.057-.327-1.639-.327z" opacity%3D".78"%2F%3E%3Cpath d%3D"m19.091 15.574c.108-.002.207-.023.296-.064.09-.041.179-.105.268-.193l2.462-2.522c.126-.124.189-.278.189-.46 0-.124-.03-.237-.091-.34s-.141-.185-.242-.245c-.101-.061-.212-.091-.334-.091-.187 0-.352.073-.495.22l-2.165 2.249h.232l-2.175-2.249c-.145-.147-.311-.22-.497-.22-.122 0-.234.03-.334.091-.101.061-.182.142-.242.245-.061.103-.091.216-.091.34 0 .09.015.173.046.248s.078.146.14.212l2.467 2.521c.171.171.36.256.565.256z" opacity%3D".75"%2F%3E%3C%2Fsvg%3E');
+619	    width: 24px;
+620	    height: 24px;
+621	    margin-left: 2px;
+622	    margin-right: 1px;
+623	    mix-blend-mode: luminosity;
+624	#else
+625	    mask-image: url('data:image/svg+xml,<svg viewBox="0 0 44 24" xmlns="http://www.w3.org/2000/svg"><path d="M 30.25 9.25 L 36.5 15.75 L 42.75 9.25" fill="none" stroke="black" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M 16 3.5 C 16 2.672 16.672 2 17.5 2 C 18.3 2 19 2.7 19 3.5 C 19 4.3 18.3 5 17.5 5 C 16.7 5 16 4.3 16 3.5 Z M 11 6.5 C 11 10.1 13.9 13 17.5 13 C 21.1 13 24 10.1 24 6.5 C 24 2.9 21.1 0 17.5 0 C 13.9 0 11 2.9 11 6.5 Z"/><path d="M 20 17.3 L 20 18.6 L 20.9 19.9 C 21 20 21 20 21 20 L 17.7 23.8 C 17.7 23.8 17.7 23.8 17.7 23.8 C 17.5 23.9 17.4 23.9 17.3 23.8 L 15 21 L 15 11 L 20 11 L 20 14.8 L 21 15.9 C 21 16 21 16 20.9 16.1 L 20 17.3 Z M 17 13 L 17 21.3 L 17.5 21.8 L 18 21.3 L 18 13 L 17 13 Z"/></svg>');
+626	    mask-size: 22px 12px;
+627	    width: 22px;
+628	    height: 12px;
+629	    margin-left: 3px;
+630	    margin-right: 2px;
+631	    background-color: black;
+632	#endif
+633	    flex: none;
+634	    user-select: none;
+635	}
+636	
+637	input::-webkit-credentials-auto-fill-button:hover {
+638	#if defined(WTF_PLATFORM_COCOA) && WTF_PLATFORM_COCOA
+639	    background-image: url('data:image/svg+xml,%3Csvg xmlns%3D"http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg" viewBox%3D"0 0 26 26"%3E%3Cpath d%3D"M8.692 1h8.617c2.675 0 3.644.278 4.622.801.978.523 1.745 1.29 2.268 2.268.523.978.801 1.948.801 4.622v8.617c0 2.675-.278 3.644-.801 4.622-.523.978-1.29 1.745-2.268 2.268-.978.523-1.948.801-4.622.801H8.692c-2.675 0-3.644-.278-4.622-.801-.978-.523-1.745-1.29-2.268-2.268-.523-.978-.801-1.948-.801-4.622V8.692c0-2.675.278-3.644.801-4.622.523-.978 1.29-1.745 2.268-2.268.978-.523 1.948-.801 4.622-.801V1Z" fill%3D"%23e5e5e5" fill-opacity%3D".7"%2F%3E%3Cpath fill-opacity%3D".15" d%3D"M17.309 1c2.675 0 3.644.278 4.622.801.978.523 1.745 1.29 2.268 2.268.523.978.801 1.948.801 4.622v8.617c0 2.675-.278 3.644-.801 4.622-.523.978-1.29 1.745-2.268 2.268-.978.523-1.948.801-4.622.801H8.692c-2.675 0-3.644-.278-4.622-.801-.978-.523-1.745-1.29-2.268-2.268-.523-.978-.801-1.948-.801-4.622V8.692c0-2.675.278-3.644.801-4.622.523-.978 1.29-1.745 2.268-2.268.978-.523 1.948-.801 4.622-.801L17.309 1ZM9.692 2l-1 .001c-2.28768403 0-3.2042805.17686116-4.15042927.68282824-.80370939.42979551-1.42794698 1.0540331-1.85774249 1.85774249C2.17772202 5.48797969 2.001 6.40369128 2.001 8.692v8.616c0 2.287684.17686116 3.2042805.68282824 4.1504293.42979551.8037094 1.0540331 1.4279469 1.85774249 1.8577425C5.48797969 23.822278 6.40369128 23.999 8.692 23.999h8.617c2.287684 0 3.2042805-.1768612 4.1504293-.6828282.8037094-.4297956 1.4279469-1.0540331 1.8577425-1.8577425C23.823278 20.5120203 24 19.5963087 24 17.308V8.691c0-2.28768403-.1768612-3.2042805-.6828282-4.15042927-.4297956-.80370939-1.0540331-1.42794698-1.8577425-1.85774249C20.5130203 2.17672202 19.5973087 2 17.309 2H9.692Z" fill%3D"%23e6e6e6"%2F%3E%3Cpath d%3D"M9.838 8.318c-.308 0-.57-.108-.787-.325s-.325-.478-.325-.785.108-.57.323-.787.478-.325.789-.325c.303 0 .564.109.782.327s.327.48.327.785c0 .306-.109.568-.327.785s-.479.325-.782.325zm0-3.84c-.59 0-1.139.108-1.648.324s-.956.517-1.341.903-.686.833-.904 1.341-.326 1.055-.326 1.641c0 .571.106 1.112.317 1.622s.51.961.896 1.352.841.698 1.366.918v6.082c0 .101.018.196.054.287s.092.173.167.247l1.122 1.077c.083.078.19.12.32.126s.244-.039.343-.136l1.998-1.998c.104-.105.155-.227.153-.365s-.054-.26-.157-.365l-1.094-1.083 1.555-1.553c.101-.102.151-.223.149-.361-.001-.138-.054-.26-.158-.365l-1.488-1.496c.929-.411 1.644-.964 2.142-1.66.499-.696.748-1.472.748-2.329 0-.581-.109-1.126-.327-1.635s-.52-.956-.905-1.341-.833-.687-1.343-.905-1.057-.327-1.639-.327zm9.253 11.096c.108-.002.207-.023.296-.064.09-.041.179-.105.268-.193l2.462-2.522c.126-.124.189-.278.189-.46 0-.124-.03-.237-.091-.34s-.141-.185-.242-.245c-.101-.061-.212-.091-.334-.091-.187 0-.352.073-.495.22l-2.165 2.249h.232l-2.175-2.249c-.145-.147-.311-.22-.497-.22-.122 0-.234.03-.334.091-.101.061-.182.142-.242.245-.061.103-.091.216-.091.34 0 .09.015.173.046.248s.078.146.14.212l2.467 2.521c.171.171.36.256.565.256z"%2F%3E%3C%2Fsvg%3E');
+640	#else
+641	    background-color: rgb(0, 122, 255);
+642	#endif
+643	}
+644	
+645	input::-webkit-credentials-auto-fill-button:active {
+646	#if defined(WTF_PLATFORM_COCOA) && WTF_PLATFORM_COCOA
+647	    background-image: url('data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2026%2026%22%3E%3Cpath%20fill%3D%22%23B2B2B2%22%20fill-opacity%3D%22.6%22%20d%3D%22M8.692%201h8.617c2.675%200%203.644.278%204.622.801.978.523%201.745%201.29%202.268%202.268.523.978.801%201.948.801%204.622v8.617c0%202.675-.278%203.644-.801%204.622-.523.978-1.29%201.745-2.268%202.268-.978.523-1.948.801-4.622.801H8.692c-2.675%200-3.644-.278-4.622-.801-.978-.523-1.745-1.29-2.268-2.268-.523-.978-.801-1.948-.801-4.622V8.692c0-2.675.278-3.644.801-4.622.523-.978%201.29-1.745%202.268-2.268.978-.523%201.948-.801%204.622-.801V1Z%22%2F%3E%3Cpath%20fill%3D%22%23B2B2B2%22%20fill-opacity%3D%22.15%22%20d%3D%22M17.309%201c2.675%200%203.644.278%204.622.801.978.523%201.745%201.29%202.268%202.268.523.978.801%201.948.801%204.622v8.617c0%202.675-.278%203.644-.801%204.622-.523.978-1.29%201.745-2.268%202.268-.978.523-1.948.801-4.622.801H8.692c-2.675%200-3.644-.278-4.622-.801-.978-.523-1.745-1.29-2.268-2.268-.523-.978-.801-1.948-.801-4.622V8.692c0-2.675.278-3.644.801-4.622.523-.978%201.29-1.745%202.268-2.268.978-.523%201.948-.801%204.622-.801L17.309%201ZM9.692%202l-1%20.001c-2.28768403%200-3.2042805.17686116-4.15042927.68282824-.80370939.42979551-1.42794698%201.0540331-1.85774249%201.85774249C2.17772202%205.48797969%202.001%206.40369128%202.001%208.692v8.616c0%202.287684.17686116%203.2042805.68282824%204.1504293.42979551.8037094%201.0540331%201.4279469%201.85774249%201.8577425C5.48797969%2023.822278%206.40369128%2023.999%208.692%2023.999h8.617c2.287684%200%203.2042805-.1768612%204.1504293-.6828282.8037094-.4297956%201.4279469-1.0540331%201.8577425-1.8577425C23.823278%2020.5120203%2024%2019.5963087%2024%2017.308V8.691c0-2.28768403-.1768612-3.2042805-.6828282-4.15042927-.4297956-.80370939-1.0540331-1.42794698-1.8577425-1.85774249C20.5130203%202.17672202%2019.5973087%202%2017.309%202H9.692Z%22%2F%3E%3Cpath%20d%3D%22M9.838%208.318c-.308%200-.57-.108-.787-.325s-.325-.478-.325-.785.108-.57.323-.787.478-.325.789-.325c.303%200%20.564.109.782.327s.327.48.327.785c0%20.306-.109.568-.327.785s-.479.325-.782.325zm0-3.84c-.59%200-1.139.108-1.648.324s-.956.517-1.341.903-.686.833-.904%201.341-.326%201.055-.326%201.641c0%20.571.106%201.112.317%201.622s.51.961.896%201.352.841.698%201.366.918v6.082c0%20.101.018.196.054.287s.092.173.167.247l1.122%201.077c.083.078.19.12.32.126s.244-.039.343-.136l1.998-1.998c.104-.105.155-.227.153-.365s-.054-.26-.157-.365l-1.094-1.083%201.555-1.553c.101-.102.151-.223.149-.361-.001-.138-.054-.26-.158-.365l-1.488-1.496c.929-.411%201.644-.964%202.142-1.66.499-.696.748-1.472.748-2.329%200-.581-.109-1.126-.327-1.635s-.52-.956-.905-1.341-.833-.687-1.343-.905-1.057-.327-1.639-.327zM19.091%2015.574c.108-.002.207-.023.296-.064.09-.041.179-.105.268-.193l2.462-2.522c.126-.124.189-.278.189-.46%200-.124-.03-.237-.091-.34s-.141-.185-.242-.245c-.101-.061-.212-.091-.334-.091-.187%200-.352.073-.495.22l-2.165%202.249h.232l-2.175-2.249c-.145-.147-.311-.22-.497-.22-.122%200-.234.03-.334.091-.101.061-.182.142-.242.245-.061.103-.091.216-.091.34%200%20.09.015.173.046.248s.078.146.14.212l2.467%202.521c.171.171.36.256.565.256z%22%2F%3E%3C%2Fsvg%3E');
+648	#else
+649	    background-color: rgb(0, 60, 219);
+650	#endif
+651	}
+652	
+653	input::-webkit-contacts-auto-fill-button {
+654	#if (defined(HAVE_ALTERNATE_ICONS) && HAVE_ALTERNATE_ICONS)
+655	    mask-image: url('data:image/svg+xml,<svg viewBox="0 0 44 24" xmlns="http://www.w3.org/2000/svg"><path d="M 30.25 9.25 L 36.5 15.75 L 42.75 9.25" fill="none" stroke="black" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M 12 24 C 18.5647 24 24 18.5529 24 12 C 24 5.4353 18.553 0 11.9883 0 C 5.4353 0 0 5.4353 0 12 C 0 18.5529 5.4471 24 12 24 Z M 12 16.0118 C 8.4706 16.0118 5.7412 17.2706 4.5529 18.6823 C 2.9647 16.9176 2.0118 14.5765 2.0118 12 C 2.0118 6.447 6.4353 2 11.9883 2 C 17.5412 2 21.9883 6.447 22 12 C 22.0119 14.5765 21.0471 16.9176 19.4589 18.6941 C 18.2706 17.2823 15.5412 16.0118 12 16.0118 Z M 12 14.0118 C 14.2588 14.0353 16.0353 12.1059 16.0353 9.5765 C 16.0353 7.2 14.2588 5.2235 12 5.2235 C 9.7412 5.2235 7.9529 7.2 7.9647 9.5765 C 7.9765 12.1059 9.7412 13.9882 12 14.0118 Z"/></svg>');
+656	#else
+657	    mask-image: url('data:image/svg+xml,<svg viewBox="0 0 44 24" xmlns="http://www.w3.org/2000/svg"><path d="M 30.25 9.25 L 36.5 15.75 L 42.75 9.25" fill="none" stroke="black" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="12" cy="12" r="11" fill="none" stroke="black" stroke-width="2"/><path d="M 12 11.5 C 10.3 11.5 9 10.1 9 8.2 C 9 6.5 10.3 5 12 5 C 13.6 5 15 6.5 15 8.2 C 15 10.1 13.6 11.5 12 11.5 Z M 6.6 18 C 6.2 18 6 17.7 6 17.4 C 6 16.2 7.9 13 12 13 C 16.1 13 18 16.2 18 17.4 C 18 17.7 17.8 18 17.4 18 L 6.6 18 Z"/></svg>');
+658	#endif
+659	    mask-size: 22px 12px;
+660	    width: 22px;
+661	    height: 12px;
+662	    margin-left: 3px;
+663	    margin-right: 2px;
+664	    background-color: black;
+665	    flex: none;
+666	    user-select: none;
+667	}
+668	
+669	input::-webkit-contacts-auto-fill-button:hover {
+670	    background-color: rgb(0, 122, 255);
+671	}
+672	
+673	input::-webkit-contacts-auto-fill-button:active {
+674	    background-color: rgb(0, 60, 219);
+675	}
+676	
+677	input::-webkit-credit-card-auto-fill-button {
+678	    mask-image: url('data:image/svg+xml,<svg viewBox="0 0 44 24" xmlns="http://www.w3.org/2000/svg"><path d="M 30.25 9.25 L 36.5 15.75 L 42.75 9.25" fill="none" stroke="black" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><rect x="1" y="4" width="22" height="16" rx="2" fill="none" stroke="black" stroke-width="2"/><rect x="2" y="8" width="20" height="3"/><rect x="3" y="12" width="5" height="4" rx="1"/></svg>');
+679	    mask-size: 22px 12px;
+680	    width: 22px;
+681	    height: 12px;
+682	    margin-left: 3px;
+683	    margin-right: 2px;
+684	    background-color: black;
+685	    flex: none;
+686	    user-select: none;
+687	}
+688	
+689	input::-webkit-credit-card-auto-fill-button:hover {
+690	    background-color: rgb(0, 122, 255);
+691	}
+692	
+693	input::-webkit-credit-card-auto-fill-button:active {
+694	    background-color: rgb(0, 60, 219);
+695	}
+696	
+697	input::-webkit-caps-lock-indicator {
+698	    appearance: auto;
+699	    content: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="17" height="17"><path fill="black" fill-opacity="0.4" d="M12.5 0.5A 4 4 0 0 1 16.5 4.5L 16.5 12.5A 4 4 0 0 1 12.5 16.5L 4.5 16.5A 4 4 0 0 1 0.5 12.5L 0.5 4.5A 4 4 0 0 1 4.5 0.5L 12.5 0.5M 8.5 2L 4 7L 6.25 7L 6.25 10.25L 10.75 10.25L 10.75 7L 13 7L 8.5 2M 10.75 12L 6.25 12L 6.25 14.25L 10.75 14.25L 10.75 12"/></svg>');
+700	    max-width: 17px;
+701	    align-self: stretch;
+702	    flex: none;
+703	    user-select: none;
+704	}
+705	
+706	#if defined(ENABLE_DATALIST_ELEMENT) && ENABLE_DATALIST_ELEMENT
+707	input::-webkit-list-button {
+708	    appearance: auto;
+709	    display: block;
+710	    position: relative;
+711	    cursor: default;
+712	    align-self: stretch;
+713	    flex: none;
+714	    user-select: none;
+715	#if defined(WTF_PLATFORM_IOS_FAMILY) && WTF_PLATFORM_IOS_FAMILY
+716	    width: 11px;
+717	    /* Make it easier to hit the button on iOS */
+718	    padding: 7px;
+719	    margin: -7px;
+720	#else
+721	    width: 16px;
+722	    height: 100%;
+723	#endif
+724	}
+725	#endif
+726	
+727	select {
+728	    border-radius: 5px;
+729	}
+730	
+731	textarea {
+732	    appearance: auto;
+733	#if !(defined(WTF_PLATFORM_IOS_FAMILY) && WTF_PLATFORM_IOS_FAMILY)
+734	#if defined(HAVE_OS_DARK_MODE_SUPPORT) && HAVE_OS_DARK_MODE_SUPPORT
+735	    color: text;
+736	    background-color: -webkit-control-background;
+737	#else
+738	    background-color: white;
+739	#endif
+740	    border: 1px solid;
+741	    -webkit-rtl-ordering: logical;
+742	    user-select: text;
+743	    padding: 2px;
+744	#else
+745	    -webkit-nbsp-mode: space;
+746	    -webkit-line-break: after-white-space;
+747	
+748	    /* On iOS we want to inherit the left and right padding for consistency with
+749	     other form controls (e.g. <input type="text">). We want to override the top
+750	     and bottom padding to ensure we have a symmetric look for text areas. */
+751	    padding-top: 2px;
+752	    padding-bottom: 2px;
+753	#endif
+754	    flex-direction: column;
+755	    resize: auto;
+756	    cursor: auto;
+757	    white-space: pre-wrap;
+758	    word-wrap: break-word;
+759	}
+760	
+761	::placeholder {
+762	    -webkit-text-security: none;
+763	    color: darkGray;
+764	    pointer-events: none !important;
+765	}
+766	
+767	input::placeholder {
+768	    white-space: pre;
+769	    word-wrap: normal;
+770	    overflow: hidden;
+771	    line-height: initial;
+772	}
+773	
+774	input:is([type="hidden"], [type="image"], [type="file"]) {
+775	    appearance: initial;
+776	    padding: initial;
+777	    background-color: initial;
+778	    border: initial;
+779	}
+780	
+781	input[type="file"] {
+782	    align-items: baseline;
+783	    color: inherit;
+784	    text-align: start !important;
+785	}
+786	
+787	input:-webkit-autofill-and-obscured {
+788	    -webkit-text-security: disc !important;
+789	}
+790	
+791	input:-webkit-autofill-strong-password {
+792	    user-select: none !important;
+793	}
+794	
+795	input:-webkit-autofill-strong-password, input:-webkit-autofill-strong-password-viewable {
+796	    input-security: none !important;
+797	    cursor: default !important;
+798	    font-family: monospace;
+799	}
+800	
+801	input:-webkit-autofill, input:-webkit-autofill-strong-password, input:-webkit-autofill-strong-password-viewable, input:-webkit-autofill-and-obscured {
+802	    background-color: #FAFFBD !important;
+803	    background-image: none !important;
+804	    color: #000000 !important;
+805	}
+806	
+807	input:is([type="radio"], [type="checkbox"]) {
+808	    margin: 3px 2px;
+809	#if defined(WTF_PLATFORM_IOS_FAMILY) && WTF_PLATFORM_IOS_FAMILY
+810	    border: initial;
+811	    box-sizing: border-box;
+812	#else
+813	    padding: initial;
+814	    background-color: initial;
+815	    border: initial;
+816	#endif
+817	}
+818	
+819	input:is([type="button"], [type="submit"], [type="reset"]) {
+820	    appearance: auto;
+821	    white-space: pre;
+822	}
+823	
+824	input[type="file"]::file-selector-button {
+825	    appearance: auto;
+826	    white-space: nowrap;
+827	    margin: 0;
+828	    font-size: inherit;
+829	}
+830	
+831	input:is([type="button"], [type="submit"], [type="reset"]), input[type="file"]::file-selector-button, button {
+832	    align-items: flex-start;
+833	    text-align: center;
+834	    cursor: default;
+835	#if !(defined(WTF_PLATFORM_IOS_FAMILY) && WTF_PLATFORM_IOS_FAMILY)
+836	    color: ButtonText;
+837	    padding: 2px 6px 3px 6px;
+838	    border: 2px outset ButtonFace;
+839	    background-color: ButtonFace;
+840	#else
+841	    padding: 0 1.0em;
+842	    border: 1px solid -webkit-control-background;
+843	    font: 11px system-ui;
+844	    background-color: -apple-system-opaque-secondary-fill;
+845	    color: -apple-system-blue;
+846	#endif
+847	    box-sizing: border-box;
+848	}
+849	
+850	input:is([type="button"], [type="submit"], [type="reset"]):active, input[type="file"]::file-selector-button:active, button:active {
+851	#if !(defined(WTF_PLATFORM_IOS_FAMILY) && WTF_PLATFORM_IOS_FAMILY)
+852	    color: ActiveButtonText;
+853	#else
+854	    color: -apple-system-blue;
+855	#endif
+856	}
+857	
+858	#if defined(WTF_PLATFORM_IOS_FAMILY) && WTF_PLATFORM_IOS_FAMILY
+859	
+860	input[type="submit"], input[type="submit"]:active,
+861	button[type="submit"], button[type="submit"]:active,
+862	button[type="menu"], button[type="menu"]:active {
+863	    background-color: -apple-system-blue;
+864	    color: white;
+865	    font-weight: bold;
+866	}
+867	
+868	#endif
+869	
+870	input[type="range"] {
+871	    appearance: auto;
+872	    padding: initial;
+873	    border: initial;
+874	    margin: 2px;
+875	    color: #909090;
+876	}
+877	
+878	input[type="range"]::-webkit-slider-container, input[type="range"]::-webkit-media-slider-container {
+879	    flex: 1;
+880	    box-sizing: border-box;
+881	    display: flex;
+882	    align-contents: center;
+883	    min-width: 0;
+884	}
+885	
+886	input[type="range"]::-webkit-slider-runnable-track {
+887	    flex: 1;
+888	    align-self: center;
+889	
+890	    box-sizing: border-box;
+891	    display: block;
+892	}
+893	
+894	input[type="range"]::-webkit-slider-thumb, input[type="range"]::-webkit-media-slider-thumb {
+895	    appearance: auto;
+896	    box-sizing: border-box;
+897	    display: block;
+898	}
+899	
+900	#if defined(WTF_PLATFORM_IOS_FAMILY) && WTF_PLATFORM_IOS_FAMILY
+901	input[type="range"]::-webkit-slider-thumb, input[type="range"]::-webkit-slider-thumb:active {
+902	    background-color: white;
+903	    border: initial;
+904	    box-shadow: 0px 6px 13px rgba(0, 0, 0, 0.2), 0px 0.5px 4px rgba(0, 0, 0, 0.2);
+905	}
+906	
+907	input[type="range"]::-webkit-media-slider-thumb {
+908	    background-color: white;
+909	    border: 1px solid rgb(66, 66, 66);
+910	    padding: 0px;
+911	}
+912	
+913	input:disabled, textarea:disabled {
+914	    opacity: 0.4;
+915	}
+916	
+917	input[readonly], textarea[readonly] {
+918	    border-color: rgb(188, 188, 188);
+919	}
+920	#endif
+921	
+922	#if !(defined(WTF_PLATFORM_IOS_FAMILY) && WTF_PLATFORM_IOS_FAMILY)
+923	
+924	input:is([type="button"], [type="submit"], [type="reset"]):disabled,
+925	input[type="file"]:disabled::file-selector-button, button:disabled,
+926	select:disabled, optgroup:disabled, option:disabled,
+927	select[disabled]>option {
+928	    color: GrayText;
+929	}
+930	
+931	input:is([type="button"], [type="submit"], [type="reset"]):active, input[type="file"]:active::file-selector-button, button:active {
+932	    border-style: inset;
+933	}
+934	
+935	input:is([type="button"], [type="submit"], [type="reset"]):active:disabled,
+936	input[type="file"]:active:disabled::file-selector-button, button:active:disabled {
+937	    border-style: outset;
+938	}
+939	
+940	#else
+941	
+942	input[type="file"]:disabled {
+943	    color: rgba(60, 60, 67, 0.3);
+944	    opacity: initial;
+945	}
+946	
+947	input:is([type="button"], [type="submit"], [type="reset"]):disabled,
+948	input[type="file"]:disabled::file-selector-button,
+949	button:disabled,
+950	select:disabled {
+951	    background-color: -apple-system-opaque-secondary-fill-disabled;
+952	    color: -apple-system-tertiary-label;
+953	    opacity: initial;
+954	}
+955	
+956	#endif
+957	
+958	area, param {
+959	    display: none;
+960	}
+961	
+962	input[type="checkbox"] {
+963	    appearance: auto;
+964	#if !(defined(WTF_PLATFORM_IOS_FAMILY) && WTF_PLATFORM_IOS_FAMILY)
+965	    box-sizing: border-box;
+966	#else
+967	    border-radius: 5px;
+968	    width: 16px;
+969	    height: 16px;
+970	    padding: 0px;
+971	    /* We want to be as close to background:transparent as possible without actually being transparent */
+972	    background-color: rgba(255, 255, 255, 0.01);
+973	#endif
+974	}
+975	
+976	#if defined(WTF_PLATFORM_IOS_FAMILY) && WTF_PLATFORM_IOS_FAMILY
+977	input[type="radio"] {
+978	    appearance: auto;
+979	    border-radius: 50%;
+980	    width: 16px;
+981	    height: 16px;
+982	    padding: 0px;
+983	    /* We want to be as close to background:transparent as possible without actually being transparent */
+984	    background-color: rgba(255, 255, 255, 0.01);
+985	}
+986	
+987	input[type="checkbox"]:indeterminate {
+988	    background: rgba(0, 0, 0, 0.8);
+989	}
+990	
+991	input[type="checkbox"]:indeterminate:disabled {
+992	    opacity: initial;
+993	    background: rgba(0, 0, 0, 0.8);
+994	}
+995	
+996	input:is([type="checkbox"], [type="radio"]):checked {
+997	    border-color: rgba(255, 255, 255, 0.0);
+998	}
+999	
+1000	input:is([type="checkbox"], [type="radio"]):disabled {
+1001	    opacity: initial;
+1002	}
+1003	
+1004	input:is([type="checkbox"], [type="radio"]):checked:disabled {
+1005	    opacity: initial;
+1006	    background: rgba(0, 0, 0, 0.8);
+1007	}
+1008	#endif
+1009	
+1010	#if !(defined(WTF_PLATFORM_IOS_FAMILY) && WTF_PLATFORM_IOS_FAMILY)
+1011	input[type="radio"] {
+1012	    appearance: auto;
+1013	    box-sizing: border-box;
+1014	}
+1015	#endif
+1016	
+1017	#if defined(ENABLE_INPUT_TYPE_COLOR) && ENABLE_INPUT_TYPE_COLOR
+1018	
+1019	#if defined(WTF_PLATFORM_IOS_FAMILY) && WTF_PLATFORM_IOS_FAMILY
+1020	input[type="color"] {
+1021	    padding: 3px;
+1022	}
+1023	#endif
+1024	
+1025	input[type="color"]::-webkit-color-swatch-wrapper {
+1026	    display: flex;
+1027	#if defined(WTF_PLATFORM_IOS_FAMILY) && WTF_PLATFORM_IOS_FAMILY
+1028	    border-radius: inherit;
+1029	    padding: 2px;
+1030	#else
+1031	    padding: 4px 2px 5px;
+1032	#endif
+1033	    box-sizing: border-box;
+1034	    width: 100%;
+1035	    height: 100%;
+1036	}
+1037	
+1038	input[type="color"]::-webkit-color-swatch {
+1039	    background-color: #000000;
+1040	#if defined(WTF_PLATFORM_IOS_FAMILY) && WTF_PLATFORM_IOS_FAMILY
+1041	    border-radius: inherit;
+1042	#else
+1043	    border-radius: 2px;
+1044	#endif
+1045	    flex: 1;
+1046	}
+1047	
+1048	#endif // defined(ENABLE_INPUT_TYPE_COLOR) && ENABLE_INPUT_TYPE_COLOR
+1049	
+1050	select {
+1051	    box-sizing: border-box;
+1052	    appearance: auto;
+1053	#if defined(WTF_PLATFORM_IOS_FAMILY) && WTF_PLATFORM_IOS_FAMILY
+1054	    letter-spacing: normal;
+1055	    word-spacing: normal;
+1056	    line-height: normal;
+1057	    padding: 0 0.4em 0 0.4em;
+1058	    color: -apple-system-blue;
+1059	    font: 11px system-ui;
+1060	    border: 1px solid -webkit-control-background;
+1061	    border-radius: initial;
+1062	    background-color: -apple-system-opaque-secondary-fill;
+1063	#else
+1064	    border: 1px solid;
+1065	#if defined(HAVE_OS_DARK_MODE_SUPPORT) && HAVE_OS_DARK_MODE_SUPPORT
+1066	    color: text;
+1067	    background-color: -webkit-control-background;
+1068	#else
+1069	    color: black;
+1070	    background-color: white;
+1071	#endif
+1072	#endif
+1073	    align-items: center;
+1074	    white-space: pre;
+1075	    -webkit-rtl-ordering: logical;
+1076	    cursor: default;
+1077	}
+1078	
+1079	#if !(defined(WTF_PLATFORM_IOS_FAMILY) && WTF_PLATFORM_IOS_FAMILY)
+1080	select:is([size], [multiple]), select[size][multiple] {
+1081	    appearance: auto;
+1082	    align-items: flex-start;
+1083	    border: 1px inset gray;
+1084	    border-radius: initial;
+1085	    white-space: initial;
+1086	}
+1087	
+1088	select:is([size=""], [size="0"], [size="1"]) {
+1089	    appearance: auto;
+1090	    align-items: center;
+1091	    border: 1px solid;
+1092	    border-radius: 5px;
+1093	    white-space: pre;
+1094	}
+1095	#endif
+1096	
+1097	optgroup {
+1098	    font-weight: bolder;
+1099	}
+1100	
+1101	option {
+1102	    font-weight: normal;
+1103	}
+1104	
+1105	output {
+1106	    display: inline;
+1107	}
+1108	
+1109	/* form validation message bubble */
+1110	
+1111	::-webkit-validation-bubble {
+1112	    display: inline-block;
+1113	    z-index: 2147483647;
+1114	    position: absolute;
+1115	    opacity: 0.95;
+1116	    line-height: 0;
+1117	    margin: 0;
+1118	    -webkit-text-security: none;
+1119	    transition: opacity 05.5s ease;
+1120	}
+1121	
+1122	::-webkit-validation-bubble-message {
+1123	    display: flex;
+1124	    position: relative;
+1125	    top: -4px;
+1126	    font: message-box;
+1127	    color: black;
+1128	    min-width: 50px;
+1129	    max-width: 200px;
+1130	    border: solid 2px #400;
+1131	    background: linear-gradient(#f8ecec, #e8cccc);
+1132	    padding: 8px;
+1133	    border-radius: 8px;
+1134	    box-shadow: 4px 4px 4px rgba(100,100,100,0.6),
+1135	        inset -2px -2px 1px #d0c4c4,
+1136	        inset 2px 2px 1px white;
+1137	    line-height: normal;
+1138	    white-space: normal;
+1139	    z-index: 2147483644;
+1140	}
+1141	
+1142	::-webkit-validation-bubble-text-block {
+1143	    flex: 1;
+1144	}
+1145	
+1146	::-webkit-validation-bubble-heading {
+1147	    font-weight: bold;
+1148	}
+1149	
+1150	::-webkit-validation-bubble-arrow {
+1151	    display: inline-block;
+1152	    position: relative;
+1153	    left: 32px;
+1154	    width: 16px;
+1155	    height: 16px;
+1156	    background-color: #f8ecec;
+1157	    border-width: 2px 0 0 2px;
+1158	    border-style: solid;
+1159	    border-color: #400;
+1160	    box-shadow: inset 2px 2px 1px white;
+1161	    transform-origin: 0 0;
+1162	    transform: rotate(45deg);
+1163	    z-index: 2147483645;
+1164	}
+1165	
+1166	::-webkit-validation-bubble-arrow-clipper {
+1167	    display: block;
+1168	    overflow: hidden;
+1169	    height: 16px;
+1170	}
+1171	
+1172	/* meter */
+1173	
+1174	meter {
+1175	    appearance: auto;
+1176	    box-sizing: border-box;
+1177	    display: inline-block;
+1178	    height: 1em;
+1179	    width: 5em;
+1180	    vertical-align: -0.2em;
+1181	}
+1182	
+1183	/* progress */
+1184	
+1185	progress {
+1186	    appearance: auto;
+1187	    box-sizing: border-box;
+1188	    display: inline-block;
+1189	    height: 1em;
+1190	    width: 10em;
+1191	    vertical-align: -0.2em;
+1192	}
+1193	
+1194	progress::-webkit-progress-inner-element {
+1195	    box-sizing: inherit;
+1196	    height: 100%;
+1197	    width: 100%;
+1198	}
+1199	
+1200	progress::-webkit-progress-bar {
+1201	    background-color: gray;
+1202	    height: 100%;
+1203	    width: 100%;
+1204	    box-sizing: border-box;
+1205	}
+1206	
+1207	progress::-webkit-progress-value {
+1208	    background-color: green;
+1209	    height: 100%;
+1210	    width: 50%; /* should be removed later */
+1211	    box-sizing: border-box;
+1212	}
+1213	
+1214	/* inline elements */
+1215	
+1216	u, ins {
+1217	    text-decoration: underline;
+1218	}
+1219	
+1220	strong, b {
+1221	    font-weight: bold;
+1222	}
+1223	
+1224	i, cite, em, var, address, dfn {
+1225	    font-style: italic;
+1226	}
+1227	
+1228	tt, code, kbd, samp {
+1229	    font-family: monospace;
+1230	}
+1231	
+1232	pre, xmp, plaintext, listing {
+1233	    display: block;
+1234	    font-family: monospace;
+1235	    white-space: pre;
+1236	    margin: 1__qem 0;
+1237	}
+1238	
+1239	mark {
+1240	    background-color: yellow;
+1241	    color: black;
+1242	}
+1243	
+1244	big {
+1245	    font-size: larger;
+1246	}
+1247	
+1248	small {
+1249	    font-size: smaller;
+1250	}
+1251	
+1252	s, strike, del {
+1253	    text-decoration: line-through;
+1254	}
+1255	
+1256	sub {
+1257	    vertical-align: sub;
+1258	    font-size: smaller;
+1259	}
+1260	
+1261	sup {
+1262	    vertical-align: super;
+1263	    font-size: smaller;
+1264	}
+1265	
+1266	nobr {
+1267	    white-space: nowrap;
+1268	}
+1269	
+1270	/* states */
+1271	
+1272	:focus-visible {
+1273	#if defined(WTF_PLATFORM_IOS_FAMILY) && WTF_PLATFORM_IOS_FAMILY
+1274	    outline: auto 3px -webkit-focus-ring-color;
+1275	#else
+1276	    outline: auto 5px -webkit-focus-ring-color;
+1277	#endif
+1278	}
+1279	
+1280	/* Read-only text fields do not show a focus ring but do still receive focus */
+1281	html:focus, body:focus, input[readonly]:focus, applet:focus, embed:focus, iframe:focus, object:focus {
+1282	    outline: none;
+1283	}
+1284	
+1285	#if !defined(WTF_PLATFORM_IOS_FAMILY) || !WTF_PLATFORM_IOS_FAMILY
+1286	input:focus, textarea:focus, select:focus {
+1287	    outline-offset: -2px;
+1288	}
+1289	#endif
+1290	
+1291	input:is([type="button"], [type="checkbox"], [type="file"], [type="hidden"], [type="image"], [type="radio"], [type="reset"], [type="search"], [type="submit"]):focus,
+1292	input[type="file"]:focus::file-selector-button {
+1293	    outline-offset: 0;
+1294	}
+1295	
+1296	a:any-link {
+1297	    color: -webkit-link;
+1298	    text-decoration: underline;
+1299	    cursor: auto;
+1300	}
+1301	
+1302	a:any-link:active {
+1303	    color: -webkit-activelink;
+1304	}
+1305	
+1306	/* HTML5 ruby elements */
+1307	
+1308	ruby, rt {
+1309	    text-indent: 0; /* blocks used for ruby rendering should not trigger this */
+1310	}
+1311	
+1312	rt {
+1313	    line-height: normal;
+1314	    text-emphasis: none;
+1315	}
+1316	
+1317	ruby > rt {
+1318	    display: block;
+1319	    font-size: -webkit-ruby-text;
+1320	    text-align: start;
+1321	}
+1322	
+1323	ruby > rp {
+1324	    display: none;
+1325	}
+1326	
+1327	/* other elements */
+1328	
+1329	noframes {
+1330	    display: none;
+1331	}
+1332	
+1333	frameset, frame {
+1334	    display: block;
+1335	}
+1336	
+1337	frameset {
+1338	    border-color: inherit;
+1339	}
+1340	
+1341	iframe {
+1342	    border: 2px inset;
+1343	}
+1344	
+1345	details {
+1346	    display: block;
+1347	}
+1348	
+1349	summary {
+1350	    display: block;
+1351	}
+1352	
+1353	summary::-webkit-details-marker {
+1354	    display: inline-block;
+1355	    width: 0.66em;
+1356	    height: 0.66em;
+1357	    margin-right: 0.4em;
+1358	}
+1359	
+1360	template {
+1361	    display: none;
+1362	}
+1363	
+1364	bdi, output {
+1365	    unicode-bidi: isolate;
+1366	}
+1367	
+1368	bdo {
+1369	    unicode-bidi: bidi-override;
+1370	}
+1371	
+1372	slot {
+1373	    display: contents;
+1374	}
+1375	
+1376	#if defined(WTF_PLATFORM_IOS_FAMILY) && WTF_PLATFORM_IOS_FAMILY
+1377	applet, embed, object, img {
+1378	    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+1379	}
+1380	:any-link img {
+1381	    -webkit-tap-highlight-color: inherit;
+1382	}
+1383	#endif
+1384	
+1385	/* page */
+1386	
+1387	@page {
+1388	    /* FIXME: Define the right default values for page properties. */
+1389	    size: auto;
+1390	    margin: auto;
+1391	    padding: 0px;
+1392	    border-width: 0px;
+1393	}
+1394	
+1395	/* noscript is handled internally, as it depends on settings. */
+1396	
+1397	/* Default support for "Smart Invert" where all content color except media is inverted. */ 
+1398	@media (inverted-colors) {
+1399	    img, picture, video { filter: invert(100%); } /* Images and videos double-inverted. */
+1400	}
+1401	
+1402	/* https://drafts.csswg.org/css-text-decor-4/#text-decoration-skipping */
+1403	ins, del {
+1404	    text-decoration-skip: none;
+1405	}
